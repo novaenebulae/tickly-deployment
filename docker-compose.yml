@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # 1. Le Reverse Proxy (point d'entrée)
+  proxy:
+    build: ./proxy # Construit l'image du proxy localement sur le VPS
+    container_name: tickly_proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - app_network
+    depends_on:
+      - backend
+      - static-server
+
+  # 2. Le Serveur Statique (Angular + Fichiers)
+  static-server:
+    image: novaenebulae/tickly-frontend:latest # TIRE l'image depuis Docker Hub
+    container_name: tickly_static_server
+    restart: unless-stopped
+    volumes:
+      # Monte le volume des uploads pour que Nginx puisse les servir
+      - tickly_uploads:/usr/share/nginx/html/uploads:ro
+    networks:
+      - app_network
+
+  # 3. Le Backend (API Java)
+  backend:
+    image: novaenebulae/tickly-backend:latest # TIRE l'image depuis Docker Hub
+    container_name: tickly_backend
+    restart: unless-stopped
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_REFRESH_TOKEN=${GOOGLE_REFRESH_TOKEN}
+    volumes:
+      # Monte le volume pour que l'app puisse écrire les fichiers uploadés
+      - tickly_uploads:/app/uploads
+    networks:
+      - app_network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # 4. La Base de Données (MySQL)
+  db:
+    image: mysql:8.0
+    container_name: tickly_db
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./data.sql:/docker-entrypoint-initdb.d/data.sql # Assurez-vous d'avoir ce fichier dans le dépôt de déploiement
+    networks:
+      - app_network
+
+volumes:
+  mysql_data: {}
+  tickly_uploads: {}
+
+networks:
+  app_network:
+    driver: bridge
