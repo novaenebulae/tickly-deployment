@@ -12,8 +12,8 @@ services:
     networks:
       - app_network
     depends_on:
-      - backend
-      - static-server
+      - tickly_backend
+      - tickly_static-server
 
   # 2. Le Serveur Statique (Angular + Fichiers)
   static-server:
@@ -32,14 +32,15 @@ services:
     container_name: tickly_backend
     restart: unless-stopped
     environment:
-      - MYSQL_HOST=db
       - MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME}
-      - MYSQL_USER=${MYSQL_USER}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
       - GOOGLE_REFRESH_TOKEN=${GOOGLE_REFRESH_TOKEN}
+      - APP_FRONTEND_URL=${APP_FRONTEND_URL}
     volumes:
       # Monte le volume pour que l'app puisse écrire les fichiers uploadés
       - tickly_uploads:/app/uploads
