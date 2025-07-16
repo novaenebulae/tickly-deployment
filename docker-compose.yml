@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # 1. Le Reverse Proxy (point d'entrée)
   proxy:
@@ -12,8 +10,8 @@ services:
     networks:
       - app_network
     depends_on:
-      - tickly_backend
-      - tickly_static-server
+      - backend
+      - static-server
 
   # 2. Le Serveur Statique (Angular + Fichiers)
   static-server:
@@ -33,7 +31,6 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
@@ -67,7 +64,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./data.sql:/docker-entrypoint-initdb.d/data.sql # Assurez-vous d'avoir ce fichier dans le dépôt de déploiement
+      - ./schema.sql:/docker-entrypoint-initdb.d/10_schema.sql
+      - ./data.sql:/docker-entrypoint-initdb.d/20_data.sql
     networks:
       - app_network
 
