@@ -6,6 +6,9 @@
 -- Ce script est conçu pour être exécuté par Spring Boot au démarrage.
 -- Il doit être placé dans le répertoire `src/main/resources` et nommé `data.sql`.
 -- L'ordre des insertions est crucial pour respecter les contraintes de clés étrangères.
+SET NAMES 'utf8mb4';
+SET CHARACTER SET utf8mb4;
+SET collation_connection = 'utf8mb4_unicode_ci';
 
 -- Désactivation des contraintes de clés étrangères pour permettre l'insertion dans un ordre flexible
 SET FOREIGN_KEY_CHECKS = 0;
@@ -52,37 +55,6 @@ DELETE
 FROM event_categories;
 DELETE
 FROM structure_types;
-
-ALTER TABLE tickets
-    AUTO_INCREMENT = 1;
-ALTER TABLE reservations
-    AUTO_INCREMENT = 1;
-ALTER TABLE event_audience_zone
-    AUTO_INCREMENT = 1;
-ALTER TABLE events
-    AUTO_INCREMENT = 1;
-ALTER TABLE friendships
-    AUTO_INCREMENT = 1;
-ALTER TABLE team_members
-    AUTO_INCREMENT = 1;
-ALTER TABLE teams
-    AUTO_INCREMENT = 1;
-ALTER TABLE user_favorite_structures
-    AUTO_INCREMENT = 1;
-ALTER TABLE verification_tokens
-    AUTO_INCREMENT = 1;
-ALTER TABLE audience_zone_template
-    AUTO_INCREMENT = 1;
-ALTER TABLE structure_areas
-    AUTO_INCREMENT = 1;
-ALTER TABLE users
-    AUTO_INCREMENT = 1;
-ALTER TABLE structures
-    AUTO_INCREMENT = 1;
-ALTER TABLE event_categories
-    AUTO_INCREMENT = 1;
-ALTER TABLE structure_types
-    AUTO_INCREMENT = 1;
 
 -- ##################################################
 -- # 1. PEUPLEMENT DE LA TABLE `structure_types`    #
