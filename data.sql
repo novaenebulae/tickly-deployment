@@ -192,33 +192,40 @@ VALUES (1, 'Alice', 'Martin', 'alice.martin@tickly.dev', '$2a$10$5D.wJYGi0g79Paj
 
 INSERT INTO structure_has_types (structure_id, type_id)
 VALUES
--- L'Arsenal (ID 1)
+-- L'Arsenal (ID 1) - Salle de concert
 (1, 1),
-(1, 6),
--- La BAM (ID 2)
+
+-- La BAM (ID 2) - Salle de concert
 (2, 1),
--- Opéra-Théâtre (ID 3)
-(3, 2),
+
+-- Opéra-Théâtre (ID 3) - Opéra + Théâtre
+(3, 5),
 (3, 3),
--- Stade Saint-Symphorien (ID 4)
+
+-- Stade Saint-Symphorien (ID 4) - Stade / Arène
 (4, 4),
--- Parc des Expositions (ID 5)
-(5, 5),
--- Les Trinitaires (ID 6)
+
+-- Parc des Expositions (ID 5) - Centre de congrès / Parc des expositions
+(5, 7),
+
+-- Les Trinitaires (ID 6) - Salle de concert
 (6, 1),
-(6, 2),
--- Comédie de Metz (ID 7)
-(7, 2),
-(7, 8),
--- Salle Braun (ID 8)
-(8, 2),
--- Metz Congrès Robert Schuman (ID 9)
-(9, 5),
--- Centre Pompidou-Metz (ID 10)
-(10, 6),
--- Les Arènes de Metz (ID 11)
-(11, 1),
-(11, 4);
+
+-- Comédie de Metz (ID 7) - Café-théâtre / Comédie club
+(7, 9),
+
+-- Salle Braun (ID 8) - Théâtre
+(8, 3),
+
+-- Metz Congrès Robert Schuman (ID 9) - Centre de congrès / Parc des expositions
+(9, 7),
+
+-- Centre Pompidou-Metz (ID 10) - Musée / Galerie d'exposition
+(10, 2),
+
+-- Les Arènes de Metz (ID 11) - Palais des sports + Salle de concert (polyvalent)
+(11, 13),
+(11, 1);
 
 -- ##################################################
 -- # 6. PEUPLEMENT DE LA TABLE `structure_areas`    #
