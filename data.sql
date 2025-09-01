@@ -407,74 +407,75 @@ INSERT INTO events (id, name, short_description, full_description, start_date, e
 VALUES (1, 'Orchestre National de Metz - Saison Classique',
         'Une soirée exceptionnelle avec l''Orchestre National de Metz.',
         'L''Orchestre National de Metz Grand Est vous invite à une soirée inoubliable sous la direction de son chef principal. Au programme, des œuvres de Beethoven et Mozart qui raviront les amateurs de musique classique. Une expérience acoustique unique dans la Grande Salle de l''Arsenal.',
-        DATE_ADD(NOW(), INTERVAL 30 DAY), DATE_ADD(NOW(), INTERVAL 30 DAY) + INTERVAL 3 HOUR, 'PUBLISHED', 1, 1,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 30 DAY)), INTERVAL 20 HOUR) + INTERVAL 30 MINUTE, DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 30 DAY)), INTERVAL 23 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 1, 1,
         1, NOW(), NOW(), 'orchestre_metz.webp', '3 Avenue Ney', 'Metz', '57000', 'France'),
 
        (2, 'Festival Electronic Waves',
         'Trois jours de musique électronique avec les meilleurs DJs internationaux.',
         'Electronic Waves revient pour sa 8ème édition avec une programmation exceptionnelle. Découvrez les sonorités les plus avant-gardistes de la scène électronique internationale dans l''ambiance unique de la BAM. Trois scènes, plus de 20 artistes, et une expérience immersive garantie.',
-        DATE_ADD(NOW(), INTERVAL 45 DAY), DATE_ADD(NOW(), INTERVAL 47 DAY), 'PUBLISHED', 1, 1, 2, NOW(), NOW(),
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 45 DAY)), INTERVAL 19 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 47 DAY)), INTERVAL 2 HOUR), 'PUBLISHED', 1, 1, 2, NOW(), NOW(),
         'electronic_waves.webp', '20 Boulevard d''Alsace', 'Metz', '57070', 'France'),
 
        (3, 'La Traviata - Opéra de Verdi',
         'Production exceptionnelle de l''opéra le plus célèbre de Verdi.',
         'L''Opéra-Théâtre de Metz présente une nouvelle production de La Traviata dans une mise en scène contemporaine saisissante. Avec la soprano internationale Maria Dolores et le ténor français Jean-Baptiste Millot. Direction musicale : Maestro Antonio Benedetti.',
-        DATE_ADD(NOW(), INTERVAL 60 DAY), DATE_ADD(NOW(), INTERVAL 60 DAY) + INTERVAL 3 HOUR, 'PUBLISHED', 1, 1,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 60 DAY)), INTERVAL 20 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 60 DAY)), INTERVAL 23 HOUR), 'PUBLISHED', 1, 1,
         3, NOW(), NOW(), 'traviata.webp', '4-5 Place de la Comédie', 'Metz', '57000', 'France'),
 
        (4, 'FC Metz vs Olympique Lyonnais',
         'Match de Ligue 1 au Stade Saint-Symphorien.',
         'Venez encourager les Grenats lors de ce match crucial de Ligue 1 face à l''Olympique Lyonnais. Ambiance garantie dans le chaudron messin ! Billets disponibles pour toutes les tribunes. Ouverture des portes 1h30 avant le coup d''envoi.',
-        DATE_ADD(NOW(), INTERVAL 25 DAY), DATE_ADD(NOW(), INTERVAL 25 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 1, 0,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 25 DAY)), INTERVAL 17 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 25 DAY)), INTERVAL 19 HOUR), 'PUBLISHED', 1, 0,
         4, NOW(), NOW(), 'fcmetz_lyon.webp', '3 Allée Saint-Symphorien', 'Longeville-lès-Metz', '57050', 'France'),
 
        (5, 'Salon Habitat & Jardin',
         'Le salon de référence pour l''habitat et le jardinage en Lorraine.',
         'Découvrez les dernières tendances en matière d''habitat, de décoration et de jardinage. Plus de 200 exposants, des démonstrations, des conférences thématiques et de nombreux conseils d''experts. Idéal pour vos projets de rénovation et d''aménagement.',
-        DATE_ADD(NOW(), INTERVAL 40 DAY), DATE_ADD(NOW(), INTERVAL 43 DAY), 'PUBLISHED', 0, 0, 5, NOW(), NOW(),
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 40 DAY)), INTERVAL 9 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 43 DAY)), INTERVAL 18 HOUR), 'PUBLISHED', 0, 0, 5, NOW(), NOW(),
         'salon_habitat.webp', 'Rue de la Grange aux Bois', 'Metz', '57070', 'France'),
 
        (6, 'Jazz Session - Les Trinitaires',
         'Soirée jazz intime dans le caveau historique.',
         'Plongez dans l''atmosphère feutrée du caveau des Trinitaires pour une soirée jazz exceptionnelle. Le quartet de Sarah Mitchell vous transportera dans l''univers du jazz moderne avec des reprises revisitées et des compositions originales.',
-        DATE_ADD(NOW(), INTERVAL 15 DAY), DATE_ADD(NOW(), INTERVAL 15 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 1, 0,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 15 DAY)), INTERVAL 21 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 15 DAY)), INTERVAL 23 HOUR), 'PUBLISHED', 1, 0,
         6, NOW(), NOW(), 'jazz_trinitaires.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 
        (7, 'Jamel Comedy Club - Tournée',
         'Les humoristes du Jamel Comedy Club en spectacle.',
         'Retrouvez les talents du Jamel Comedy Club pour une soirée d''humour inoubliable. Au programme : Yacine Belhousse, Sofia Aram et Ahmed Sylla dans leurs derniers spectacles. Rires garantis dans l''intimité de la Comédie de Metz.',
-        DATE_ADD(NOW(), INTERVAL 20 DAY), DATE_ADD(NOW(), INTERVAL 20 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 1, 1,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 20 DAY)), INTERVAL 20 HOUR) + INTERVAL 30 MINUTE, DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 20 DAY)), INTERVAL 22 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 1, 1,
         7, NOW(), NOW(), 'comedy_club.webp', '1/3 Rue du Pont Saint-Marcel', 'Metz', '57000', 'France'),
 
        (8, 'Congrès International de Cybersécurité',
         'Trois jours dédiés aux enjeux de la cybersécurité.',
         'Le plus grand événement cybersécurité de l''Est de la France. Conférences, ateliers, démonstrations et networking avec les experts du secteur. Plus de 50 intervenants internationaux et 1000 participants attendus.',
-        DATE_ADD(NOW(), INTERVAL 80 DAY), DATE_ADD(NOW(), INTERVAL 82 DAY), 'PUBLISHED', 0, 0, 9, NOW(), NOW(),
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 80 DAY)), INTERVAL 8 HOUR) + INTERVAL 30 MINUTE, DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 82 DAY)), INTERVAL 17 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 0, 0, 9, NOW(), NOW(),
         'cybersec_congress.webp', '112 Rue aux Arènes', 'Metz', '57000', 'France'),
 
        (9, 'Exposition : "Art et Intelligence Artificielle"',
         'Découverte des nouvelles formes d''art générées par l''IA.',
         'Le Centre Pompidou-Metz explore les frontières entre art et technologie dans cette exposition révolutionnaire. Œuvres interactives, installations immersives et rencontres avec les artistes pionniers de l''art numérique.',
-        DATE_ADD(NOW(), INTERVAL 10 DAY), DATE_ADD(NOW(), INTERVAL 90 DAY), 'PUBLISHED', 1, 1, 10, NOW(), NOW(),
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 10 DAY)), INTERVAL 10 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 90 DAY)), INTERVAL 18 HOUR), 'PUBLISHED', 1, 1, 10, NOW(), NOW(),
         'expo_ia.webp', '1 Parvis des Droits-de-l''Homme', 'Metz', '57000', 'France'),
 
        (10, 'Concert Rap - Nekfeu',
         'Nekfeu en concert aux Arènes de Metz.',
         'L''un des rappeurs français les plus talentueux de sa génération se produit aux Arènes de Metz. Venez découvrir ses nouveaux titres dans une mise en scène spectaculaire avec un écran géant et des effets pyrotechniques.',
-        DATE_ADD(NOW(), INTERVAL 35 DAY), DATE_ADD(NOW(), INTERVAL 35 DAY) + INTERVAL 3 HOUR, 'PUBLISHED', 1, 1,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 35 DAY)), INTERVAL 20 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 35 DAY)), INTERVAL 23 HOUR), 'PUBLISHED', 1, 1,
         11, NOW(), NOW(), 'nekfeu_concert.webp', '5 Avenue Louis le Débonnaire', 'Metz', '57000', 'France'),
 
        (11, 'Spectacle Familial - "Le Petit Prince"',
         'Adaptation théâtrale du chef-d''œuvre d''Antoine de Saint-Exupéry.',
         'Une mise en scène poétique et moderne du Petit Prince destinée à toute la famille. Avec des marionnettes, des projections et une bande sonore originale, ce spectacle enchantera petits et grands.',
-        DATE_ADD(NOW(), INTERVAL 50 DAY), DATE_ADD(NOW(), INTERVAL 50 DAY) + INTERVAL 90 MINUTE, 'PUBLISHED', 1, 0,
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 50 DAY)), INTERVAL 15 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 50 DAY)), INTERVAL 16 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 1, 0,
         8, NOW(), NOW(), 'petit_prince.webp', '18 Rue Mozart', 'Metz', '57000', 'France'),
 
        (12, 'Festival de Danse Contemporaine',
         'Trois jours de danse contemporaine avec des compagnies internationales.',
         'Le Festival Mouvements revient avec une programmation éclectique mêlant danse contemporaine, performance et arts numériques. 8 compagnies, 15 représentations et des masterclass ouvertes au public.',
-        DATE_ADD(NOW(), INTERVAL 70 DAY), DATE_ADD(NOW(), INTERVAL 72 DAY), 'DRAFT', 0, 0, 1, NOW(), NOW(),
+        DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 70 DAY)), INTERVAL 19 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 72 DAY)), INTERVAL 22 HOUR), 'DRAFT', 0, 0, 1, NOW(), NOW(),
         'festival_danse.webp', '3 Avenue Ney', 'Metz', '57000', 'France');
+
 
 -- ###################################################################
 -- # 13. PEUPLEMENT DE LA TABLE DE JOINTURE `event_has_categories`   #
@@ -759,49 +760,48 @@ VALUES
 -- Événement 20 : Pour les statistiques de remplissage et de statuts
 (20, 'Nuit du Blues & Soul', 'Une nuit entière dédiée aux légendes du blues et de la soul.',
  'Le Caveau des Trinitaires se transforme en club de blues de Chicago. Retrouvez des artistes locaux et internationaux pour des reprises endiablées et des compositions originales. Une soirée authentique et pleine d''émotion.',
- DATE_ADD(NOW(), INTERVAL 14 DAY), DATE_ADD(NOW(), INTERVAL 14 DAY) + INTERVAL 4 HOUR, 'PUBLISHED', 1, 1, 6,
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 14 DAY)), INTERVAL 21 HOUR) + INTERVAL 30 MINUTE, DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 15 DAY)), INTERVAL 1 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 1, 1, 6,
  NOW() - INTERVAL 30 DAY, NOW(), 'nuit_blues.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 
 -- Événement 21 : Pour les statistiques d'évolution des réservations
 (21, 'Scène Ouverte Poésie & Slam', 'Donnez de la voix lors de notre scène ouverte mensuelle.',
  'Que vous soyez poète aguerri ou simple curieux, la scène de La Chapelle vous est ouverte. Venez partager vos textes, écouter ceux des autres dans une ambiance bienveillante et créative. Inscription sur place.',
- DATE_ADD(NOW(), INTERVAL 35 DAY), DATE_ADD(NOW(), INTERVAL 35 DAY) + INTERVAL 3 HOUR, 'PUBLISHED', 1, 0, 6,
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 35 DAY)), INTERVAL 19 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 35 DAY)), INTERVAL 22 HOUR), 'PUBLISHED', 1, 0, 6,
  NOW() - INTERVAL 25 DAY, NOW(), 'scene_poesie.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 
 -- 8 autres événements
 (22, 'Trio de Jazz Manouche', 'Hommage à Django Reinhardt.',
- 'Un concert virtuose qui vous fera voyager dans le Paris des années 30.', DATE_ADD(NOW(), INTERVAL 40 DAY),
- DATE_ADD(NOW(), INTERVAL 40 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 1, 0, 6, NOW(), NOW(), 'jazz_manouche.webp',
+ 'Un concert virtuose qui vous fera voyager dans le Paris des années 30.', DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 40 DAY)), INTERVAL 20 HOUR),
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 40 DAY)), INTERVAL 22 HOUR), 'PUBLISHED', 1, 0, 6, NOW(), NOW(), 'jazz_manouche.webp',
  '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (23, 'Théâtre d''Improvisation : Le Match', 'Deux équipes s''affrontent dans un match d''improvisation déjanté.',
- 'Le public vote, les comédiens improvisent ! Une soirée unique et hilarante.', DATE_ADD(NOW(), INTERVAL 48 DAY),
- DATE_ADD(NOW(), INTERVAL 48 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 0, 0, 6, NOW(), NOW(), 'theatre_impro.webp',
+ 'Le public vote, les comédiens improvisent ! Une soirée unique et hilarante.', DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 48 DAY)), INTERVAL 20 HOUR) + INTERVAL 30 MINUTE,
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 48 DAY)), INTERVAL 22 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 0, 0, 6, NOW(), NOW(), 'theatre_impro.webp',
  '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (24, 'Exposition Photos : "Regards sur Metz"', 'Le travail de 10 photographes locaux sur la ville de Metz.',
  'Une vision plurielle et poétique de la ville, capturée par des talents de la région.',
- DATE_ADD(NOW(), INTERVAL 55 DAY), DATE_ADD(NOW(), INTERVAL 85 DAY), 'PUBLISHED', 1, 0, 6, NOW(), NOW(),
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 55 DAY)), INTERVAL 10 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 85 DAY)), INTERVAL 18 HOUR), 'PUBLISHED', 1, 0, 6, NOW(), NOW(),
  'expo_metz.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (25, 'Concert Folk : The Wandering Souls', 'Un duo folk acoustique pour une soirée intimiste.',
  'Des mélodies envoûtantes et des textes poignants par ce duo montant de la scène folk.',
- DATE_ADD(NOW(), INTERVAL 62 DAY), DATE_ADD(NOW(), INTERVAL 62 DAY) + INTERVAL 2 HOUR, 'PUBLISHED', 1, 1, 6, NOW(),
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 62 DAY)), INTERVAL 20 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 62 DAY)), INTERVAL 22 HOUR), 'PUBLISHED', 1, 1, 6, NOW(),
  NOW(), 'folk_concert.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (26, 'Conférence : L''Histoire des Templiers', 'Par l''historien Jean-Marc Durand.',
  'Découvrez les mythes et réalités de l''ordre des Templiers, de leur création à leur chute.',
- DATE_ADD(NOW(), INTERVAL 70 DAY), DATE_ADD(NOW(), INTERVAL 70 DAY) + INTERVAL 90 MINUTE, 'PUBLISHED', 0, 0, 6,
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 70 DAY)), INTERVAL 18 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 70 DAY)), INTERVAL 19 HOUR) + INTERVAL 30 MINUTE, 'PUBLISHED', 0, 0, 6,
  NOW(), NOW(), 'conf_templiers.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (27, 'Spectacle de Danse : "Origines"', 'Une performance de danse contemporaine explorant nos racines.',
  'La compagnie "Corps en Mouvement" présente sa dernière création, un voyage chorégraphique puissant.',
- DATE_ADD(NOW(), INTERVAL 78 DAY), DATE_ADD(NOW(), INTERVAL 78 DAY) + INTERVAL 80 MINUTE, 'PUBLISHED', 0, 0, 6,
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 78 DAY)), INTERVAL 20 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 78 DAY)), INTERVAL 21 HOUR) + INTERVAL 20 MINUTE, 'PUBLISHED', 0, 0, 6,
  NOW(), NOW(), 'danse_origines.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (28, 'Concert Rock Indé : "The Fuzz"', 'Le groupe de rock garage "The Fuzz" en concert unique.',
- 'Énergie brute et guitares saturées pour les amateurs de rock sans concession.', DATE_ADD(NOW(), INTERVAL 85 DAY),
- DATE_ADD(NOW(), INTERVAL 85 DAY) + INTERVAL 2 HOUR, 'DRAFT', 0, 0, 6, NOW(), NOW(), 'rock_fuzz.webp',
+ 'Énergie brute et guitares saturées pour les amateurs de rock sans concession.', DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 85 DAY)), INTERVAL 21 HOUR),
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 85 DAY)), INTERVAL 23 HOUR), 'DRAFT', 0, 0, 6, NOW(), NOW(), 'rock_fuzz.webp',
  '12 Rue des Trinitaires', 'Metz', '57000', 'France'),
 (29, 'Ciné-Concert : "Metropolis"', 'Projection du chef-d''oeuvre de Fritz Lang avec musique live.',
  'Redécouvrez ce classique du cinéma muet accompagné au piano par l''artiste international Marc Vella.',
- DATE_ADD(NOW(), INTERVAL 92 DAY), DATE_ADD(NOW(), INTERVAL 92 DAY) + INTERVAL 3 HOUR, 'PUBLISHED', 1, 0, 6, NOW(),
+ DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 92 DAY)), INTERVAL 20 HOUR), DATE_ADD(DATE(DATE_ADD(NOW(), INTERVAL 92 DAY)), INTERVAL 23 HOUR), 'PUBLISHED', 1, 0, 6, NOW(),
  NOW(), 'cine_metropolis.webp', '12 Rue des Trinitaires', 'Metz', '57000', 'France');
-
 -- Attribution des catégories aux nouveaux événements
 INSERT INTO event_has_categories (event_id, category_id)
 VALUES (20, 1),
@@ -835,7 +835,7 @@ VALUES (30, 20, 18, 200), -- Nuit du Blues & Soul (Caveau)
 -- Ciné-Concert (Chapelle)
 
 -- ###################################################################
--- # 5. DONNÉES DE BILLETS POUR LES STATISTIQUES (VERSION CORRIGÉE)  #
+-- # 5. DONNÉES DE BILLETS POUR LES STATISTIQUES  #
 -- ###################################################################
 -- Objectif: Fournir un jeu de données riche et cohérent pour les statistiques de l'événement 20,
 -- en simulant des réservations réalistes sur une période donnée.
