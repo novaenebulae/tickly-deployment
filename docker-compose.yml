@@ -1,32 +1,54 @@
 services:
   # 1. Le Reverse Proxy (point d'entrée)
   proxy:
-    build: ./proxy # Construit l'image du proxy localement sur le VPS
+    build: ./proxy
     container_name: tickly_proxy
     restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      # Ajout des volumes pour les certificats SSL
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
     networks:
       - app_network
     depends_on:
       - backend
       - static-server
 
-  # 2. Le Serveur Statique (Angular + Fichiers)
+  # 2. Certbot pour les certificats SSL
+  certbot:
+    image: certbot/certbot:latest
+    container_name: tickly_certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt:rw
+      - ./certbot/www:/var/www/certbot:rw
+    networks:
+      - app_network
+
+  # 3. Renouvellement automatique des certificats
+  certbot-renew:
+    image: certbot/certbot:latest
+    container_name: tickly_certbot_renew
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt:rw
+      - ./certbot/www:/var/www/certbot:rw
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew --webroot --webroot-path /var/www/certbot/ --quiet && sleep 12h; done;'"
+    networks:
+      - app_network
+
   static-server:
-    image: novaenebulae/tickly-frontend:latest # TIRE l'image depuis Docker Hub
+    image: novaenebulae/tickly-frontend:latest
     container_name: tickly_static_server
     restart: unless-stopped
     volumes:
-      # Monte le volume des uploads pour que Nginx puisse les servir
       - tickly_uploads:/usr/share/nginx/html/uploads:ro
     networks:
       - app_network
 
-  # 3. Le Backend (API Java)
   backend:
-    image: novaenebulae/tickly-backend:latest # TIRE l'image depuis Docker Hub
+    image: novaenebulae/tickly-backend:latest
     container_name: tickly_backend
     restart: unless-stopped
     environment:
@@ -39,7 +61,6 @@ services:
       - GOOGLE_REFRESH_TOKEN=${GOOGLE_REFRESH_TOKEN}
       - APP_FRONTEND_URL=${APP_FRONTEND_URL}
     volumes:
-      # Monte le volume pour que l'app puisse écrire les fichiers uploadés
       - tickly_uploads:/app/uploads
     networks:
       - app_network
@@ -47,7 +68,6 @@ services:
       db:
         condition: service_healthy
 
-  # 4. La Base de Données (MySQL)
   db:
     image: mysql:8.0
     container_name: tickly_db
